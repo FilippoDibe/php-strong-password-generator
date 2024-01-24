@@ -22,15 +22,18 @@ Dare all'utente anche la possibilità di permettere o meno la ripetizione di car
 
 <!------------------------------------
 parte di php iniziale con lo start session 
+
 ---------------------------------------->
     <?php
         session_start();
-        
+
         include 'functions/function.php';
         if (isset($_GET['length']) && is_numeric($_GET['length'])) {
-            echo '<h4 class="mt-3">Password Generata:</h4>';
-            echo '<div class="alert alert-success">'.generatePassword($_GET['length']).'</div>';
-        };
+            $_SESSION['generate_password'] = generatePassword($_GET['length']);
+     
+            header('Location: mostraPassword.php');
+            exit();
+         };
     ?>
 
 <!DOCTYPE html>
@@ -54,6 +57,7 @@ parte di php iniziale con lo start session
             </div>
             <button type="submit" class="btn btn-primary">Genera Password</button>
         </form>
+       
 
        
     </div>
