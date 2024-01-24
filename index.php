@@ -41,21 +41,11 @@ Dare all'utente anche la possibilità di permettere o meno la ripetizione di car
         </form>
 
         <?php
+        include 'functions/function.php';
         if (isset($_GET['length']) && is_numeric($_GET['length'])) {
             echo '<h4 class="mt-3">Password Generata:</h4>';
             echo '<div class="alert alert-success">'.generatePassword($_GET['length']).'</div>';
-        }
-
-        // Funzione per generare la password
-        function generatePassword($length) {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()';
-            $charactersLength = strlen($characters);
-            $randomPassword = '';
-            for ($i = 0; $i < $length; $i++) {
-                $randomPassword .= $characters[rand(0, $charactersLength - 1)];
-            }
-            return $randomPassword;
-        }
+        };
         ?>
     </div>
 
