@@ -49,7 +49,6 @@ Dare all'utente anche la possibilità di permettere o meno la ripetizione di car
         ?>
     </div>
 
-
 </body>
 </body>
 </html>
